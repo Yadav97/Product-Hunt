@@ -44,7 +44,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
-            <a class="navbar-brand" href=""><span class="nes-text is-primary"></span>
+            <a class="navbar-brand" href="{% url 'home' %}"><span class="nes-text is-primary"></span>
             <img src="{% static 'logo.png' %}" height="40" width="40" class="d-inline-block align-top">
             
             
@@ -61,8 +61,10 @@
               <ul class="navbar-nav ml-auto">
 
       {% if user.is_authenticated %}
+      <a class="nes-btn is-success" href="{% url 'create' %}">Create</a>
 
       <a class="nes-btn is-success" href="javascript:{document.getElementById('logout').submit()}">Logout</a>
+      
       <form id="logout" method="POST" action="{% url 'logout' %}" >
         {% csrf_token %}
         <input type="hidden" />
